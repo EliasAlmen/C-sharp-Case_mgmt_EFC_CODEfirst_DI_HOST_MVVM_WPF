@@ -13,6 +13,7 @@ namespace EC05_C_sharp_EFC_DI_HOST_MVVM_WPF.Services
 
         private ObservableObject? _currentViewModel;
 
+        
         public ObservableObject CurrentViewModel
         {
             get => _currentViewModel!;

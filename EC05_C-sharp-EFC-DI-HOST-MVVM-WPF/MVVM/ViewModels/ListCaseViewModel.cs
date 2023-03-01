@@ -10,17 +10,18 @@ using System.Windows.Input;
 
 namespace EC05_C_sharp_EFC_DI_HOST_MVVM_WPF.MVVM.ViewModels
 {
-    internal partial class CreateCaseViewModel : ObservableObject
+    internal partial class ListCaseViewModel : ObservableObject
     {
-        private readonly NavigationStore _navigationStore;
+        private NavigationStore _navigationStore;
 
-
+        public ICommand NavigateToCreateCase { get; }
         public ICommand NavigateToHome { get; }
 
 
-        public CreateCaseViewModel(NavigationStore navigationStore)
+        public ListCaseViewModel(NavigationStore navigationStore)
         {
             _navigationStore = navigationStore;
+            NavigateToCreateCase = new NavigateCommand<CreateCaseViewModel>(navigationStore, () => new CreateCaseViewModel(_navigationStore));
             NavigateToHome = new NavigateCommand<HomeViewModel>(navigationStore, () => new HomeViewModel(_navigationStore));
         }
     }

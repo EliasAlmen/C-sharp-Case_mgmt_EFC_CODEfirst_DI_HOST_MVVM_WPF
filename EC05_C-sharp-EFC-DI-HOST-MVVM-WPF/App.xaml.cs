@@ -27,6 +27,7 @@ namespace EC05_C_sharp_EFC_DI_HOST_MVVM_WPF
                     services.AddSingleton<MainWindow>();
                     services.AddSingleton<HomeViewModel>();
                     services.AddSingleton<CreateCaseViewModel>();
+                    services.AddSingleton<ListCaseViewModel>();
                     services.AddSingleton<NavigationStore>();
                 })
                 .Build();
@@ -38,10 +39,11 @@ namespace EC05_C_sharp_EFC_DI_HOST_MVVM_WPF
 
             
             var navigationStore = AppHost!.Services.GetRequiredService<NavigationStore>();
+            navigationStore.CurrentViewModel = new HomeViewModel(navigationStore);
 
-            var startupForm = AppHost.Services.GetRequiredService<MainWindow>();
-            startupForm.DataContext = new MainViewModel(navigationStore);
-            startupForm.Show();
+            var mainWindow = AppHost.Services.GetRequiredService<MainWindow>();
+            mainWindow.DataContext = new MainViewModel(navigationStore);
+            mainWindow.Show();
             base.OnStartup(e);
         }
 

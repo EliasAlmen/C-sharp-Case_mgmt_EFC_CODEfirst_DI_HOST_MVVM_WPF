@@ -15,7 +15,9 @@ namespace EC05_C_sharp_EFC_DI_HOST_MVVM_WPF.MVVM.ViewModels
         public MainViewModel(NavigationStore navigationStore)
         {
             _navigationStore = navigationStore;
+            _navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
         }
+        
 
         public ObservableObject CurrentViewModel => _navigationStore.CurrentViewModel;
 

@@ -4,9 +4,16 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EC05_C_sharp_EFC_DI_HOST_MVVM_WPF.MVVM.Views"
+             xmlns:viewmodels="clr-namespace:EC05_C_sharp_EFC_DI_HOST_MVVM_WPF.MVVM.ViewModels"
+             xmlns:views="clr-namespace:EC05_C_sharp_EFC_DI_HOST_MVVM_WPF.MVVM.Views"
+             d:DataContext="{d:DesignInstance Type=viewmodels:HomeViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">HomeView</TextBlock>
+        <StackPanel>
+            <Button Content="Go to Create Case" Margin="20" Command="{Binding NavigateToCreateCase}" />
+            <Button Content="Go to List Case" Margin="20" Command="{Binding NavigateToListCase}" />
+        </StackPanel>
     </Grid>
 </UserControl>

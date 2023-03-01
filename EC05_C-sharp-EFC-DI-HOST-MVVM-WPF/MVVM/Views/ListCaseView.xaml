@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="EC05_C_sharp_EFC_DI_HOST_MVVM_WPF.MVVM.Views.CreateCaseView"
+﻿<UserControl x:Class="EC05_C_sharp_EFC_DI_HOST_MVVM_WPF.MVVM.Views.ListCaseView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,12 +6,13 @@
              xmlns:local="clr-namespace:EC05_C_sharp_EFC_DI_HOST_MVVM_WPF.MVVM.Views"
              xmlns:viewmodels="clr-namespace:EC05_C_sharp_EFC_DI_HOST_MVVM_WPF.MVVM.ViewModels"
              xmlns:views="clr-namespace:EC05_C_sharp_EFC_DI_HOST_MVVM_WPF.MVVM.Views"
-             d:DataContext="{d:DesignInstance Type=viewmodels:CreateCaseViewModel}"
-             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance Type=viewmodels:ListCaseViewModel}"
+             mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">CreateCaseView</TextBlock>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">ListCaseView</TextBlock>
         <StackPanel>
+            <Button Content="Go to Create case" Margin="20" Command="{Binding NavigateToCreateCase}" />
             <Button Content="Go to Home" Margin="20" Command="{Binding NavigateToHome}" />
         </StackPanel>
     </Grid>
