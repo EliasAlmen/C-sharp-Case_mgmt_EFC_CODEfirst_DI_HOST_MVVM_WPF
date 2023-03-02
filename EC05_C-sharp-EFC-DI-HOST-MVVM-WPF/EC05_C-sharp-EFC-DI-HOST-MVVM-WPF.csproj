@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="MVVM\Models\" />
+    <Folder Include="MVVM\Models\Entities\" />
   </ItemGroup>
 
 </Project>

@@ -9,10 +9,43 @@
              d:DataContext="{d:DesignInstance Type=viewmodels:CreateCaseViewModel}"
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">CreateCaseView</TextBlock>
+    <Grid Margin="20">
         <StackPanel>
-            <Button Content="Go to Home" Margin="20" Command="{Binding NavigateToHome}" />
+            <TextBlock Text="FirstName" />
+            <TextBox Text="{Binding FirstName}" Padding="5" Margin="0 0 0 5" />
+            <TextBlock Text="LastName" />
+            <TextBox Text="{Binding LastName}" Padding="5" Margin="0 0 0 5" />
+            <TextBlock Text="Email" />
+            <TextBox Text="{Binding Email}" Padding="5" Margin="0 0 0 5" />
+            <TextBlock Text="PhoneNumber" />
+            <TextBox Text="{Binding PhoneNumber}" Padding="5" Margin="0 0 0 5" TextChanged="TextBox_TextChanged" />
+            <TextBlock Text="Case description" />
+            <TextBox
+                MaxLength="500"
+                MinLines="1" 
+                MaxLines="5"
+                Name="tb_Description"
+                TextWrapping="Wrap"
+                AcceptsReturn="True"
+                VerticalScrollBarVisibility="Visible"
+                Text="{Binding Tb_Description}" 
+                Padding="5" 
+                Margin="0 0 0 5" GotFocus="tb_Description_GotFocus" />
+            <TextBlock Text="Severity level" />
+            <ComboBox Name="severity_levels">
+                <ComboBoxItem Content="1 - A critical incident with very high impact"/>
+                <ComboBoxItem Content="2 - A major incident with significant impact"/>
+                <ComboBoxItem Content="3 - A minor incident with low impact"/>
+            </ComboBox>
+            <TextBlock Text="Case status" />
+            <ComboBox Name="status">
+                <ComboBoxItem Content="Open"/>
+                <ComboBoxItem Content="Ongoing"/>
+                <ComboBoxItem Content="Closed"/>
+            </ComboBox>
+            <Separator Margin="20"/>
+            <Button Command="{Binding AddCommand}" Content="Add Case" Padding="8" Width="100"/>
+            
         </StackPanel>
     </Grid>
 </UserControl>

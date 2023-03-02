@@ -10,7 +10,17 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <ContentControl Content="{Binding CurrentViewModel}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <Button Content="Home" Margin="5" Command="{Binding NavigateToHome}" />
+            <Button Content="Case list" Margin="5" Command="{Binding NavigateToListCase}" />
+            <Button Content="Create case" Margin="5" Command="{Binding NavigateToCreateCase}" />
+            <Button Content="Exit" Margin="5" Command="{Binding ExitCommand}" />
+        </StackPanel>
+        <ContentControl Grid.Column="1" Content="{Binding CurrentViewModel}">
             <ContentControl.Resources>
                 <DataTemplate DataType="{x:Type viewmodels:HomeViewModel}">
                     <views:HomeView />

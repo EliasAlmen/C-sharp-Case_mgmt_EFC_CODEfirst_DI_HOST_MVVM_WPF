@@ -23,6 +23,17 @@ namespace EC05_C_sharp_EFC_DI_HOST_MVVM_WPF.MVVM.Views
         public CreateCaseView()
         {
             InitializeComponent();
+
+        }
+
+        private void tb_Description_GotFocus(object sender, RoutedEventArgs e)
+        {
+            tb_Description.Text = string.Empty;
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
