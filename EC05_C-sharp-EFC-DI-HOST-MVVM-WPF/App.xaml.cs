@@ -19,6 +19,7 @@ namespace EC05_C_sharp_EFC_DI_HOST_MVVM_WPF
     /// </summary>
     public partial class App : Application
     {
+
         private readonly string _connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Elias\Downloads\EC-utbildning-webbutvecklare-NET\05-Datalagring\EC05-Databases\EC05_C-sharp-Case_mgmt\EC05_C-sharp-EFC-DI-HOST-MVVM-WPF\Contexts\sql_case_mgmt_db.mdf;Integrated Security=True;Connect Timeout=30";
 
         public static IHost? AppHost { get; private set; }
@@ -26,14 +27,16 @@ namespace EC05_C_sharp_EFC_DI_HOST_MVVM_WPF
         public App()
         {
             AppHost = Host.CreateDefaultBuilder()
-                .ConfigureServices((hostContext, services) =>
+                .ConfigureServices((IServiceCollection, services) =>
                 {
+
+                    services.AddDbContext<ApplicationDbContext>(
+                        options => options.UseSqlServer(_connectionString));
                     services.AddSingleton<MainWindow>();
                     services.AddSingleton<HomeViewModel>();
                     services.AddSingleton<CreateCaseViewModel>();
                     services.AddSingleton<ListCaseViewModel>();
                     services.AddSingleton<NavigationStore>();
-                    services.AddSingleton<ApplicationDbContext>();
                     services.AddSingleton<DateTimeService>();
                 })
                 .Build();
@@ -44,6 +47,7 @@ namespace EC05_C_sharp_EFC_DI_HOST_MVVM_WPF
             await AppHost!.StartAsync();
 
             
+
             var navigationStore = AppHost!.Services.GetRequiredService<NavigationStore>();
             navigationStore.CurrentViewModel = new HomeViewModel(navigationStore);
 
@@ -53,13 +57,13 @@ namespace EC05_C_sharp_EFC_DI_HOST_MVVM_WPF
             base.OnStartup(e);
         }
 
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddDbContext<ApplicationDbContext>(
-                options => options.UseSqlServer(_connectionString));
-        }
+        //public void ConfigureServices(IServiceCollection services)
+        //{
+        //    services.AddDbContext<ApplicationDbContext>(
+        //        options => options.UseSqlServer(_connectionString));
+        //}
 
-        
+
 
         protected override async void OnExit(ExitEventArgs e)
         {
