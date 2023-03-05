@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using EC05_C_sharp_EFC_DI_HOST_MVVM_WPF.MVVM.Models.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,12 +16,9 @@ namespace EC05_C_sharp_EFC_DI_HOST_MVVM_WPF.Contexts
 
         }
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    if (!optionsBuilder.IsConfigured)
-        //    {
-        //        optionsBuilder.UseSqlServer(_connectionString);
-        //    }
-        //}
+        public DbSet<CustomerEntity> Customers { get; set; } = null!;
+        public DbSet<CaseEntity> Cases { get; set; } = null!;
+        public DbSet<CaseStatusEntity> CaseStatus { get; set; } = null!;
+        public DbSet<SeverityLevelEntity> SeverityLevel { get; set; } = null!;
     }
 }

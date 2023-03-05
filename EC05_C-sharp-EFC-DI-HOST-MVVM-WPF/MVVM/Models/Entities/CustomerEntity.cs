@@ -15,7 +15,6 @@ namespace EC05_C_sharp_EFC_DI_HOST_MVVM_WPF.MVVM.Models.Entities
         [Key] // PK 
         public int Id { get; set; }
 
-
         [Required]
         [StringLength(50)] // Will be nvarchar auto
         public string FirstName { get; set; } = string.Empty;
@@ -28,10 +27,8 @@ namespace EC05_C_sharp_EFC_DI_HOST_MVVM_WPF.MVVM.Models.Entities
         [StringLength(100)] // Will be nvarchar auto
         public string Email { get; set; } = string.Empty;
 
-
         [Column(TypeName = "char(13)")] // Takes string convert to char, also optional '?'. max 13.
         public string? PhoneNumber { get; set; }
-
 
         [Required]
         public int CaseId { get; set; }
