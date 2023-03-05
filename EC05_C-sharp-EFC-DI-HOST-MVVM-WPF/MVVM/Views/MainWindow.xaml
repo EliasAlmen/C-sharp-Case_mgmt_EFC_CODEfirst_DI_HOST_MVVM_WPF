@@ -8,7 +8,7 @@
         xmlns:views="clr-namespace:EC05_C_sharp_EFC_DI_HOST_MVVM_WPF.MVVM.Views" 
         d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="525" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"/>

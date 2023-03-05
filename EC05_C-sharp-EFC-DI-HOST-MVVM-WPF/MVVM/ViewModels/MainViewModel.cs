@@ -24,7 +24,7 @@ namespace EC05_C_sharp_EFC_DI_HOST_MVVM_WPF.MVVM.ViewModels
         private void Exit()
             => Application.Current.Shutdown();
 
-        public MainViewModel(NavigationStore navigationStore)
+        public MainViewModel(NavigationStore navigationStore, CaseService caseService)
         {
             _navigationStore = navigationStore;
             _navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;

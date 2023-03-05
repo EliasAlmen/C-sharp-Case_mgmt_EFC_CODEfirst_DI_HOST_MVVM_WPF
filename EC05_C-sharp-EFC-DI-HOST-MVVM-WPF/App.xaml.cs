@@ -32,12 +32,15 @@ namespace EC05_C_sharp_EFC_DI_HOST_MVVM_WPF
 
                     services.AddDbContext<ApplicationDbContext>(
                         options => options.UseSqlServer(_connectionString));
+
                     services.AddSingleton<MainWindow>();
                     services.AddSingleton<HomeViewModel>();
                     services.AddSingleton<CreateCaseViewModel>();
                     services.AddSingleton<ListCaseViewModel>();
                     services.AddSingleton<NavigationStore>();
                     services.AddSingleton<DateTimeService>();
+                    services.AddSingleton<CaseService>();
+
                 })
                 .Build();
         }
@@ -46,24 +49,15 @@ namespace EC05_C_sharp_EFC_DI_HOST_MVVM_WPF
         {
             await AppHost!.StartAsync();
 
-            
-
+            var caseService = AppHost!.Services.GetRequiredService<CaseService>();
             var navigationStore = AppHost!.Services.GetRequiredService<NavigationStore>();
             navigationStore.CurrentViewModel = new HomeViewModel(navigationStore);
 
             var mainWindow = AppHost.Services.GetRequiredService<MainWindow>();
-            mainWindow.DataContext = new MainViewModel(navigationStore);
+            mainWindow.DataContext = new MainViewModel(navigationStore, caseService);
             mainWindow.Show();
             base.OnStartup(e);
         }
-
-        //public void ConfigureServices(IServiceCollection services)
-        //{
-        //    services.AddDbContext<ApplicationDbContext>(
-        //        options => options.UseSqlServer(_connectionString));
-        //}
-
-
 
         protected override async void OnExit(ExitEventArgs e)
         {

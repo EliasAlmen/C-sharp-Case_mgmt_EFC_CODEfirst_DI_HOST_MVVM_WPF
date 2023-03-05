@@ -8,43 +8,46 @@
              xmlns:views="clr-namespace:EC05_C_sharp_EFC_DI_HOST_MVVM_WPF.MVVM.Views"
              d:DataContext="{d:DesignInstance Type=viewmodels:CreateCaseViewModel}"
              mc:Ignorable="d"
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="525" d:DesignWidth="800">
     <Grid Margin="20">
         <StackPanel>
-            <TextBlock Text="FirstName" />
+            <TextBlock Text="{Binding Tb_firstName}" />
             <TextBox Text="{Binding FirstName}" Padding="5" Margin="0 0 0 5" />
-            <TextBlock Text="LastName" />
+            <TextBlock Text="{Binding Tb_lastName}" />
             <TextBox Text="{Binding LastName}" Padding="5" Margin="0 0 0 5" />
-            <TextBlock Text="Email" />
+            <TextBlock Text="{Binding Tb_email}" />
             <TextBox Text="{Binding Email}" Padding="5" Margin="0 0 0 5" />
-            <TextBlock Text="PhoneNumber" />
+            <TextBlock Text="{Binding Tb_phoneNumber}" />
             <TextBox Text="{Binding PhoneNumber}" Padding="5" Margin="0 0 0 5" TextChanged="TextBox_TextChanged" />
-            <TextBlock Text="Case description" />
+            <TextBlock Text="{Binding Tb_description}" />
             <TextBox
                 MaxLength="500"
                 MinLines="1" 
                 MaxLines="5"
+                Height="75"
                 Name="tb_Description"
                 TextWrapping="Wrap"
                 AcceptsReturn="True"
                 VerticalScrollBarVisibility="Visible"
-                Text="{Binding Tb_Description}" 
+                Text="{Binding Tb_Description_text}" 
                 Padding="5" 
-                Margin="0 0 0 5" GotFocus="tb_Description_GotFocus" />
-            <TextBlock Text="Severity level" />
+                Margin="0 0 0 5" 
+                GotFocus="tb_Description_GotFocus" />
+            <TextBlock Text="{Binding Tb_severity}" />
             <ComboBox Name="severity_levels">
-                <ComboBoxItem Content="1 - A critical incident with very high impact"/>
-                <ComboBoxItem Content="2 - A major incident with significant impact"/>
-                <ComboBoxItem Content="3 - A minor incident with low impact"/>
+                <ComboBoxItem IsSelected="True" IsEnabled="False" Content="Choose a severity level" />
+                <ComboBoxItem Content="Level 1 - A critical incident with very high impact"/>
+                <ComboBoxItem Content="Level 2 - A major incident with significant impact"/>
+                <ComboBoxItem Content="Level 3 - A minor incident with low impact"/>
             </ComboBox>
-            <TextBlock Text="Case status" />
+            <TextBlock Text="{Binding Tb_status}" />
             <ComboBox Name="status">
+                <ComboBoxItem IsSelected="True" IsEnabled="False" Content="Choose case status" />
                 <ComboBoxItem Content="Open"/>
                 <ComboBoxItem Content="Ongoing"/>
                 <ComboBoxItem Content="Closed"/>
             </ComboBox>
-            <Separator Margin="20"/>
-            <Button Command="{Binding AddCommand}" Content="Add Case" Padding="8" Width="100"/>
+            <Button Command="{Binding AddCommand}" Content="Add Case" Margin="0 20 0 0" Padding="8" Width="100"/>
             
         </StackPanel>
     </Grid>
