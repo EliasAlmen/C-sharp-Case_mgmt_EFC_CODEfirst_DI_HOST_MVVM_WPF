@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace EC05_C_sharp_EFC_DI_HOST_MVVM_WPF.Migrations
 {
     /// <inheritdoc />
-    public partial class Initdb : Migration
+    public partial class InitDb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

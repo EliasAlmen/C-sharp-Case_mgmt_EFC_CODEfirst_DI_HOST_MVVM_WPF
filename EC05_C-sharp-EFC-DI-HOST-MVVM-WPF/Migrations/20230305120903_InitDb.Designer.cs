@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EC05_C_sharp_EFC_DI_HOST_MVVM_WPF.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230305115804_Init db")]
-    partial class Initdb
+    [Migration("20230305120903_InitDb")]
+    partial class InitDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
